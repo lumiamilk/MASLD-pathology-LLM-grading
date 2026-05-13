@@ -1,113 +1,145 @@
-# MASLD Opportunistic CT Screening
+# The Extraction-Reasoning Gap: A Dual-Condition Benchmark of 28 Open-Source LLMs for Grading Liver Pathology Reports
 
-基于胸部CT机会性筛查的MASLD多模态定量分期模型构建及临床应用价值研究
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 
-## 项目概述
+This repository contains the official code and sample data for the paper submitted to *Scientific Reports* (Submission ID: 1144***e493).
 
-本项目利用常规胸部CT检查的机会性筛查数据，结合影像组学特征、体成分分析和临床指标，构建代谢相关脂肪性肝病（MASLD）的多模态定量分期模型。
+## Abstract
 
-## 核心代码说明
+We evaluate 28 open-source large language models (LLMs, 4B--32B parameters) on a dual-condition benchmark for grading unstructured liver pathology reports in Chinese. The benchmark comprises two complementary tasks: **Condition A** (extraction from complete reports with explicit diagnostic conclusions) and **Condition B** (reasoning from microscopy descriptions without diagnostic conclusions). We quantify a systematic "inference gap" of ~0.30 Macro F1 across all models when transitioning from extraction to reasoning, demonstrate a +0.33 F1 advantage for Chinese-native models over English-native counterparts at comparable scales, and reveal that reasoning-enhanced models (e.g., DeepSeek-R1, Qwen3-Thinking) paradoxically underperform on structured extraction tasks due to high parse failure rates.
 
-| 文件 | 功能描述 |
-|------|----------|
-| `task_1_ct_inventory.py` | CT影像数据清点与元数据提取 |
-| `task_4_feature_extractor.py` | PyRadiomics影像组学特征提取 |
-| `task_6_index_calculator.py` | FIB-4、APRI等临床指数计算 |
-| `task_8_organ_segmentator.py` | TotalSegmentator体成分分割（肝脏、脾脏、肌肉） |
-| `task_8_body_supplement.py` | 体成分特征补充计算 |
-| `task_10_final_modeling.py` | 最终预测模型训练与评估 |
-| `task_12_model_arena.py` | 多模型竞技场（LR/SVM/RF/XGB/LGBM/CAT） |
-| `task_17.1_table_factory.py` | 论文表格生成 |
-| `task_17.3_plot_modeling.py` | 模型性能可视化（ROC、校准曲线、DCA） |
-| `task_17.4_plot_validation.py` | 模型验证可视化（SHAP、人类vs AI对比） |
-| `task_18_plot_CN.py` | 中文版图表生成 |
-
-## 技术栈
-
-- **深度学习分割**: TotalSegmentator
-- **影像组学**: PyRadiomics
-- **机器学习**: scikit-learn, XGBoost, LightGBM, CatBoost
-- **不平衡处理**: SMOTE (imbalanced-learn)
-- **可解释性**: SHAP
-- **可视化**: matplotlib, seaborn
-
-## 主要功能
-
-### 1. 体成分自动分割
-```python
-# 使用TotalSegmentator进行器官分割
-ts_api.totalsegmentator(
-    ct_path, seg_out_dir,
-    roi_subset=['liver', 'spleen'],
-    fast=True, device="gpu:0"
-)
-```
-
-### 2. 影像组学特征提取
-```python
-# PyRadiomics特征提取
-extractor = featureextractor.RadiomicsFeatureExtractor()
-features = extractor.execute(ct_path, mask_path)
-```
-
-### 3. 多模型训练与评估
-```python
-# SMOTE + Pipeline
-pipe = ImbPipeline([
-    ('imputer', KNNImputer()),
-    ('scaler', StandardScaler()),
-    ('smote', SMOTE()),
-    ('clf', RandomForestClassifier())
-])
-```
-
-### 4. SHAP可解释性分析
-```python
-explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X)
-shap.summary_plot(shap_values, X)
-```
-
-## 研究结果
-
-| 预测靶点 | AI模型敏感度 | CT报告敏感度 |
-|----------|-------------|-------------|
-| 中重度脂肪变性 (S≥2) | 84.8% | 0% |
-| 重度脂肪变性 (S=3) | 73.8% | 0% |
-
-**关键发现**: AI模型在中重度脂肪变性诊断上显著优于人类医生，解决了机会性筛查中漏诊率高的问题。
-
-## 环境依赖
+## Repository Structure
 
 ```
-python >= 3.8
-totalsegmentator
-pyradiomics
-scikit-learn
-xgboost
-lightgbm
-catboost
-imbalanced-learn
-shap
-nibabel
-pandas
-numpy
-matplotlib
-seaborn
+.
+├── v2_eval_pipeline.py          # Main evaluation pipeline
+├── v2_generate_all_figures.py   # Figure and table generation
+├── gen_sample_data.py           # Script to generate de-identified sample data
+├── sample_data.json             # 8 de-identified example cases
+├── requirements.txt             # Python dependencies
+└── README.md
 ```
 
-## 引用
+## Quick Start
 
-如果本项目对您的研究有帮助，请引用：
+### Prerequisites
 
+- **llama.cpp** (b8826 or later) with `llama-server` binary
+- GGUF model files in Q4_K_M quantization (download from HuggingFace)
+- Python 3.10+ with dependencies from `requirements.txt`
+
+### Installation
+
+```bash
+pip install -r requirements.txt
 ```
-@article{masld_ct_screening_2026,
-  title={基于胸部CT机会性筛查的MASLD多模态定量分期模型构建及临床应用价值研究},
-  author={Your Name},
-  year={2026}
+
+### Usage
+
+```bash
+# Smoke test -- 2 samples per available model, validates pipeline
+python v2_eval_pipeline.py --smoke
+
+# Full evaluation -- 10 runs, all available models
+python v2_eval_pipeline.py 10 0
+
+# Re-test only thinking/reasoning models
+python v2_eval_pipeline.py 10 0 --rethink
+
+# Generate all 6 figures and 3 tables from merged results
+python v2_generate_all_figures.py
+```
+
+### Configuration
+
+Edit the following variables at the top of `v2_eval_pipeline.py`:
+
+| Variable | Description |
+|----------|-------------|
+| `LLAMACPP_SERVER_EXE` | Path to `llama-server` binary |
+| `MODELS_DIR` | Directory containing `.gguf` model files |
+| `SERVER_THREADS` | Number of CPU threads |
+| `NUM_RUNS` | Number of independent evaluation runs (default: 10) |
+| `MAX_TOKENS` | Maximum generation tokens (default: 2048) |
+
+## Experimental Design
+
+### Dual-Condition Framework
+
+| Condition | Input Text | Task | Clinical Scenario |
+|-----------|-----------|------|-------------------|
+| **A (Extraction)** | Complete pathology report with diagnostic conclusions | Extract and standardize numerical grades | Practical: LLM as data extraction tool |
+| **B (Reasoning)** | Microscopy description only, without diagnostic conclusions | Infer grades from morphological evidence | Cognitive: LLM pathological reasoning test |
+
+### Models Evaluated
+
+28 open-source LLMs from 8 model families, uniformly quantized to Q4_K_M:
+
+| Family | Models | Parameter Range |
+|--------|--------|----------------|
+| Alibaba Qwen3 | 8 (incl. Dense, MoE, Instruct, Thinking) | 4B -- 32B |
+| DeepSeek-R1 | 5 (distilled from R1 671B) | 7B -- 32B |
+| Google Gemma / MedGemma | 5 | 4B -- 27B |
+| Zhipu GLM-4 | 2 | 9B, 32B |
+| OpenAI GPT-OSS | 1 x 3 reasoning modes | 20B (3.6B active) |
+| Meta Llama | 2 | 3B, 8B |
+| Tencent Hunyuan | 2 | 4B, 7B |
+| Others | 3 (Granite, Moonlight) | 4B -- 16B |
+
+All models evaluated with `temperature=0`, `max_tokens=2048`, across 10 independent runs with randomized few-shot examples.
+
+### Evaluation Metrics
+
+- Macro F1, Weighted F1, Accuracy (mean +/- SD across 10 runs)
+- Macro Precision, Macro Recall, Macro Specificity
+- Per-class Precision, Recall, Specificity, F1
+- Parse error rate (categorized: empty_output, not_integer, not_in_labels, call_error)
+- Per-sample predictions (patient_id, true_label, predicted_label)
+
+## Data
+
+Due to patient privacy and institutional IRB restrictions, the full clinical dataset (268 MASLD liver biopsy reports) cannot be publicly shared. It is available from the corresponding author upon reasonable request.
+
+For **reproducibility verification**, `sample_data.json` contains 8 de-identified example cases, each with:
+
+- `sample_id` — anonymous identifier
+- `fibrosis_stage` (0-4), `inflammation_grade` (0-4), `steatosis_grade` (1-3) — ground truth labels
+- `pathology_text_with_diagnosis` — complete pathology report (Condition A input)
+- `pathology_text_without_diagnosis` — microscopy description only (Condition B input)
+
+To verify pipeline functionality with the sample data:
+
+```bash
+python gen_sample_data.py                          # Generate sample_data.json
+python v2_eval_pipeline.py --smoke                  # Quick test with available models
+```
+
+## Results Summary
+
+Key findings from the full 28-model evaluation:
+
+| Metric | Best Model | Score |
+|--------|-----------|-------|
+| Fibrosis Extraction (A) | Qwen3-14B | Macro F1 = 0.928 |
+| Steatosis Extraction (A) | GLM-4-32B | Macro F1 = 0.961 |
+| Fibrosis Reasoning (B) | Qwen3-14B | Macro F1 = 0.503 |
+| Mean Inference Gap (A-B) | — | ΔMF1 ≈ 0.30 |
+| Chinese vs English @ 8B | Qwen3-8B vs Llama-3.1-8B | ΔMF1 = +0.33 |
+
+## Citation
+
+If you use this code or data, please cite:
+
+```bibtex
+@article{xxx2025extraction,
+  title={The extraction-reasoning gap: A dual-condition benchmark of 28 open-source LLMs for grading liver pathology reports},
+  author={XXX et al.},
+  journal={Scientific Reports},
+  year={2025},
+  doi={10.1038/XXXXX}
 }
 ```
 
-## 许可证
+## License
 
-MIT License
+MIT License. See [LICENSE](LICENSE) for details.
