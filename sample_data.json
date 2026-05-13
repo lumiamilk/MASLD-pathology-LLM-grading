@@ -1,0 +1,66 @@
+[
+  {
+    "sample_id": "SAMPLE_01",
+    "fibrosis_stage": 1,
+    "inflammation_grade": 1,
+    "steatosis_grade": 2,
+    "pathology_text_with_diagnosis": "1.CH-G1S1;2.Fatty liver change Ⅱ°。注：考虑脂肪性肝病，目前组织学不支持AIH. 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构凌乱，肝细胞普遍肿胀，大量肝细胞呈大泡性脂肪变性，血窦反应轻微。门管区扩大，未见界面性肝炎，少量浆细胞浸润。网染示纤维化，Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(+),EB(-),Fe(-).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构凌乱，肝细胞普遍肿胀，大量肝细胞呈大泡性脂肪变性，血窦反应轻微。门管区扩大，未见界面性肝炎，少量浆细胞浸润。网染示纤维化，Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(+),EB(-),Fe(-)."
+  },
+  {
+    "sample_id": "SAMPLE_02",
+    "fibrosis_stage": 2,
+    "inflammation_grade": 2,
+    "steatosis_grade": 2,
+    "pathology_text_with_diagnosis": "1.CH-G2S2~3;2.Fatty liver change Ⅱ°。注：建议肝穿随访. 送检肝穿刺组织细小且破碎，肝小叶结构凌乱，肝细胞普遍肿胀，明显脂肪变性，血窦反应活跃，部分门管区扩大伴炎症，可见界面性肝炎。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(±),EBV(-),Fe(-)，IgG4(±).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织细小且破碎，肝小叶结构凌乱，肝细胞普遍肿胀，明显脂肪变性，血窦反应活跃，部分门管区扩大伴炎症，可见界面性肝炎。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(±),EBV(-),Fe(-)，IgG4(±)."
+  },
+  {
+    "sample_id": "SAMPLE_03",
+    "fibrosis_stage": 0,
+    "inflammation_grade": 1,
+    "steatosis_grade": 1,
+    "pathology_text_with_diagnosis": "1.CH-G1S0;2.Fatty liver change Ⅰ°。注：本病例部分小叶间胆管周围见较多同心圆样胶原沉积，请注意随诊。 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞轻微肿胀，未见明显点灶样坏死，较多肝细胞小泡性脂肪变性，腺泡Ⅲ带肝细胞中可见脂褐素，门管区部分扩大，未见界面性肝炎明显，小叶间胆管未见明显破坏，部分小叶间胆管周围见较多同心圆样胶原沉积。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(-),EB(-),Fe(-)，IgG4(-).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞轻微肿胀，未见明显点灶样坏死，较多肝细胞小泡性脂肪变性，腺泡Ⅲ带肝细胞中可见脂褐素，门管区部分扩大，未见界面性肝炎明显，小叶间胆管未见明显破坏，部分小叶间胆管周围见较多同心圆样胶原沉积。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(-),EB(-),Fe(-)，IgG4(-)."
+  },
+  {
+    "sample_id": "SAMPLE_04",
+    "fibrosis_stage": 0,
+    "inflammation_grade": 1,
+    "steatosis_grade": 1,
+    "pathology_text_with_diagnosis": "1.CH-G1S0;2.Fatty liver change I°。注：组织学不支持自身免疫性肝病. 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞排列整齐，腺泡Ⅲ带少量肝细胞脂肪变性，血窦反应轻微，部分门管区轻微扩大，未见界面性肝炎，未见胆管损伤。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(±),EB(-),Fe(-)，IgG4(-).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞排列整齐，腺泡Ⅲ带少量肝细胞脂肪变性，血窦反应轻微，部分门管区轻微扩大，未见界面性肝炎，未见胆管损伤。网染（+），Masson染色（+），HBsAg(-),HBcAg(-),CK18(+),CK19(+),CD138(±),EB(-),Fe(-)，IgG4(-)."
+  },
+  {
+    "sample_id": "SAMPLE_05",
+    "fibrosis_stage": 1,
+    "inflammation_grade": 1,
+    "steatosis_grade": 2,
+    "pathology_text_with_diagnosis": "1.CH-G1S1;2.Fatty liver change Ⅱ°。注：目前组织学不支持自身免疫性肝病. 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构凌乱，肝细胞大量脂肪变性，部分呈气球样变性，血窦反应轻微，门管区扩大不明显，未见界面性肝炎及小叶间胆管破坏。网染示纤维化，但未形成纤维间隔，Masson染色（+），HBsAg(-),HBcAg(-),CK18（+),CK7(+),CD138(+),EBV(-),Fe(-)，Cu(-),CMV(-),IgG4(+).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构凌乱，肝细胞大量脂肪变性，部分呈气球样变性，血窦反应轻微，门管区扩大不明显，未见界面性肝炎及小叶间胆管破坏。网染示纤维化，但未形成纤维间隔，Masson染色（+），HBsAg(-),HBcAg(-),CK18（+),CK7(+),CD138(+),EBV(-),Fe(-)，Cu(-),CMV(-),IgG4(+)."
+  },
+  {
+    "sample_id": "SAMPLE_06",
+    "fibrosis_stage": 4,
+    "inflammation_grade": 3,
+    "steatosis_grade": 2,
+    "pathology_text_with_diagnosis": "1.CH-G3S4/cirrhosis.2.Fatty liver change Ⅱ°。注：组织学AIH评分5分. 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构消失，代之为假小叶形成，肝细胞普遍肿胀，部分呈小泡性脂肪变性，血窦反应活跃，间隔内炎症重，广泛界面性肝炎形成，桥接坏死，浆细胞浸润丰富，附近形成花结，未见明显胆管破坏。网染示肝硬化，Masson染色（+），HBsAg(-),HBcAg(-),CK18（+),CK7(+),CD138(+),EBV(-),Fe(-)，Cu(-),CMV(-),IgG4(-).",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构消失，代之为假小叶形成，肝细胞普遍肿胀，部分呈小泡性脂肪变性，血窦反应活跃，间隔内炎症重，广泛界面性肝炎形成，桥接坏死，浆细胞浸润丰富，附近形成花结，未见明显胆管破坏。网染示肝硬化，Masson染色（+），HBsAg(-),HBcAg(-),CK18（+),CK7(+),CD138(+),EBV(-),Fe(-)，Cu(-),CMV(-),IgG4(-)."
+  },
+  {
+    "sample_id": "SAMPLE_07",
+    "fibrosis_stage": 0,
+    "inflammation_grade": 1,
+    "steatosis_grade": 1,
+    "pathology_text_with_diagnosis": "1.非特异性炎症反应G1S0。2.Fatty liver change Ⅰ° 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞排列整齐，部分肝细胞轻微肿胀，小泡性脂肪变性，血窦反应轻微。门管区不扩大，未见界面性肝炎，未见小叶间胆管损伤。网染未见明显纤维化。Masson染色（+）。HBsAg（-）。HBcAg（-）。CK18（+）。CK7（+）。CD138（-）。IgG4（-）。EBV（-）。Fe（-）。Cu（-）。CMV（-）。",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构完好，肝细胞排列整齐，部分肝细胞轻微肿胀，小泡性脂肪变性，血窦反应轻微。门管区不扩大，未见界面性肝炎，未见小叶间胆管损伤。网染未见明显纤维化。Masson染色（+）。HBsAg（-）。HBcAg（-）。CK18（+）。CK7（+）。CD138（-）。IgG4（-）。EBV（-）。Fe（-）。Cu（-）。CMV（-）。"
+  },
+  {
+    "sample_id": "SAMPLE_08",
+    "fibrosis_stage": 1,
+    "inflammation_grade": 1,
+    "steatosis_grade": 2,
+    "pathology_text_with_diagnosis": "1.CH-G1S12.Fatty liver changeⅡ°注：组织学不支持自身免疫性肝病。 送检肝穿刺组织相当于10余个小叶范围，肝小叶结构保留，肝细胞轻微肿胀，血窦反应活跃，较多肝细胞脂肪变性，部分呈小泡性脂肪变性。门管区扩大不明显，未见界面型肝炎，未见明显胆管损伤。网染示轻微纤维化，Masson染色（+）。HBsAg（-）。HBcAg（-）。CK18（+）。CK7（+）。CD138（-）。IgG4（-）。EBV（-）。Fe（-）。Cu（-）。CMV（-）。",
+    "pathology_text_without_diagnosis": "送检肝穿刺组织相当于10余个小叶范围，肝小叶结构保留，肝细胞轻微肿胀，血窦反应活跃，较多肝细胞脂肪变性，部分呈小泡性脂肪变性。门管区扩大不明显，未见界面型肝炎，未见明显胆管损伤。网染示轻微纤维化，Masson染色（+）。HBsAg（-）。HBcAg（-）。CK18（+）。CK7（+）。CD138（-）。IgG4（-）。EBV（-）。Fe（-）。Cu（-）。CMV（-）。"
+  }
+]
