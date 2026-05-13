@@ -1,8 +1,8 @@
 # The Extraction-Reasoning Gap: A Dual-Condition Benchmark of 28 Open-Source LLMs for Grading Liver Pathology Reports
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/1207830208.svg)](https://doi.org/10.5281/zenodo.20162414)
 
-This repository contains the official code and sample data for the paper submitted to *Scientific Reports* (Submission ID: 1144***e493).
+This repository contains the official code and sample data for the paper submitted to *Scientific Reports* (Submission ID: 114417b3-3dfc-47ab-b6a1-66bce79fe493).
 
 ## Abstract
 
@@ -133,10 +133,10 @@ If you use this code or data, please cite:
 ```bibtex
 @article{xxx2025extraction,
   title={The extraction-reasoning gap: A dual-condition benchmark of 28 open-source LLMs for grading liver pathology reports},
-  author={XXX et al.},
+  author={Xu Chengying et al.},
   journal={Scientific Reports},
   year={2025},
-  doi={10.1038/XXXXX}
+  doi={10.5281/zenodo.20162415}
 }
 ```
 
