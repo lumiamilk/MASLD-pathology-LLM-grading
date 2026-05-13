@@ -136,7 +136,7 @@ If you use this code or data, please cite:
   author={Xu Chengying et al.},
   journal={Scientific Reports},
   year={2025},
-  doi={10.5281/zenodo.20162668}
+  doi={10.5281/zenodo.20162414}
 }
 ```
 
