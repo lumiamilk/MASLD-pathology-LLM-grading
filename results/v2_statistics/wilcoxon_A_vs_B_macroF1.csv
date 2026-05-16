@@ -1,0 +1,4 @@
+﻿task,n_pairs,n_zeros_removed,n_A_greater_B,mean_A_macro_f1,mean_B_macro_f1,mean_gap_A_minus_B,wilcoxon_W,raw_p,bh_adjusted_p,significant_after_bh
+fibrosis,28,0,28,0.7251,0.3983,0.3268,0,7.450580596923828e-09,1.1175870895385742e-08,True
+inflammation,28,0,27,0.458,0.2375,0.2205,2,2.2351741790771484e-08,2.2351741790771484e-08,True
+steatosis,28,0,28,0.8519,0.5978,0.2541,0,7.450580596923828e-09,1.1175870895385742e-08,True
