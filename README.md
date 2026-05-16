@@ -12,11 +12,17 @@ We evaluate 28 open-source large language models (LLMs, 4B--32B parameters) on a
 
 ```
 .
-├── v2_eval_pipeline.py          # Main evaluation pipeline
-├── v2_generate_all_figures.py   # Figure and table generation
-├── gen_sample_data.py           # Script to generate de-identified sample data
-├── sample_data.json             # 8 de-identified example cases
-├── requirements.txt             # Python dependencies
+├── code/
+│   ├── v2_eval_pipeline.py              # Main evaluation pipeline
+│   └── v2_generate_all_figures.py       # Figure and table generation
+├── sample_data/
+│   ├── sample_data.json                 # 8 de-identified example cases
+│   └── gen_sample_data.py               # Script to generate de-identified samples
+├── results/
+│   └── v2_statistics/
+│       ├── wilcoxon_A_vs_B_macroF1.csv       # Wilcoxon test results
+│       └── wilcoxon_A_vs_B_macroF1_summary.md # Statistical analysis report
+├── requirements.txt                     # Python dependencies
 └── README.md
 ```
 
@@ -38,16 +44,16 @@ pip install -r requirements.txt
 
 ```bash
 # Smoke test -- 2 samples per available model, validates pipeline
-python v2_eval_pipeline.py --smoke
+python code/v2_eval_pipeline.py --smoke
 
 # Full evaluation -- 10 runs, all available models
-python v2_eval_pipeline.py 10 0
+python code/v2_eval_pipeline.py 10 0
 
 # Re-test only thinking/reasoning models
-python v2_eval_pipeline.py 10 0 --rethink
+python code/v2_eval_pipeline.py 10 0 --rethink
 
 # Generate all 6 figures and 3 tables from merged results
-python v2_generate_all_figures.py
+python code/v2_generate_all_figures.py
 ```
 
 ### Configuration
